@@ -23,7 +23,7 @@
 
             override public string formatToBerlinClock(string time)
             {
-                string[] times;
+                string[] timeSplitArray;
 
             //delimitter for the parsing of time values
                 char[] delimitter = { ':' };
@@ -35,32 +35,32 @@
                     time=time.Replace("pm", "");
                     time=time.Trim();
 
-                    times = time.Split(delimitter,3);
+                   timeSplitArray = time.Split(delimitter,3);
 
                 //in case of time format not correct
-                    if (times.Length != 3) {
+                    if (timeSplitArray.Length != 3) {
                         return "Unsupported input format";
                     }
 
                     // Following 3 If conditions for checking if the input string is containing other than the time info. Then we discard the rest of the data
-                    if (times[1].Length > 2)
+                    if (timeSplitArray[1].Length > 2)
                     {
                         time.Remove(0, time.IndexOf(":") + 1);
-                        times = time.Split(delimitter, 3);
+                       timeSplitArray = time.Split(delimitter, 3);
                     }
 
-                    if (times[0].Length > 2)
+                    if (timeSplitArray[0].Length > 2)
                     {
-                        times[0] = times[0].Substring(times[0].Length - 2);
+                       timeSplitArray[0] =timeSplitArray[0].Substring(timeSplitArray[0].Length - 2);
                     }
-                    if (times[2].Length > 2)
+                    if (timeSplitArray[2].Length > 2)
                     {
-                        times[2] = times[2].Substring(0, 2);
+                       timeSplitArray[2] =timeSplitArray[2].Substring(0, 2);
                     }
 
                     //In 12 hour format we are converting it to 24 hour format to support berlin clock format
-                    if(Int32.Parse(times[0])!=12)
-                    times[0] = (Int32.Parse(times[0]) + 12).ToString();
+                    if(Int32.Parse(timeSplitArray[0])!=12)
+                   timeSplitArray[0] = (Int32.Parse(timeSplitArray[0]) + 12).ToString();
 
                 
                 }
@@ -76,35 +76,35 @@
                     time=time.Replace("am", "");
                     time=time.Trim();
 
-                    times = time.Split(delimitter,3);
+                   timeSplitArray = time.Split(delimitter,3);
 
 
-                    if (times.Length != 3)
+                    if (timeSplitArray.Length != 3)
                     {
 
                          return "Unsupported input format";
 
                     }
 
-                    if (times[1].Length > 2)
+                    if (timeSplitArray[1].Length > 2)
                     {
                         time=time.Remove(0, time.IndexOf(":") + 1);
-                        times = time.Split(delimitter, 3);
+                       timeSplitArray = time.Split(delimitter, 3);
                     }
 
-                    if (times[0].Length > 2)
+                    if (timeSplitArray[0].Length > 2)
                     {
-                        times[0] = times[0].Substring(times[0].Length - 2);
+                       timeSplitArray[0] =timeSplitArray[0].Substring(timeSplitArray[0].Length - 2);
                     }
-                    if (times[2].Length > 2)
+                    if (timeSplitArray[2].Length > 2)
                     {
-                        times[2] = times[2].Substring(0, 2);
+                       timeSplitArray[2] =timeSplitArray[2].Substring(0, 2);
                     }
 
                     if (amFlag)
                     {
-                        if (Int32.Parse(times[0]) == 12)
-                            times[0] = "0";
+                        if (Int32.Parse(timeSplitArray[0]) == 12)
+                           timeSplitArray[0] = "0";
                     }
                 }
 
@@ -112,7 +112,7 @@
                 String output = null;
             
             //for the first blinking light in berlin clock
-                if (Int32.Parse(times[2]) % 2 == 0)
+                if (Int32.Parse(timeSplitArray[2]) % 2 == 0)
                 {
                     output = this.yellow+" ";
                 }
@@ -121,8 +121,8 @@
                     output = this.off+" ";
                 }
 
-                int noOfRedFR = Int32.Parse(times[0]) / 5;
-                int noOfRedSR = Int32.Parse(times[0]) % 5;
+                int noOfRedFR = Int32.Parse(timeSplitArray[0]) / 5;
+                int noOfRedSR = Int32.Parse(timeSplitArray[0]) % 5;
 
             //for the 1st row in berlin clock
                 for (int i = 0; i < 4; i++)
@@ -155,7 +155,7 @@
             //3rd row
                 for (int i = 0; i < 11; i++)
                 {
-                    if (i < (Int32.Parse(times[1]) / 5))
+                    if (i < (Int32.Parse(timeSplitArray[1]) / 5))
                     {
                         if ((i + 1) % 3 == 0)
                             output = output + this.red;
@@ -172,7 +172,7 @@
             //forth row
                 for (int i = 0; i < 4; i++)
                 {
-                    if (i < (Int32.Parse(times[1]) % 5))
+                    if (i < (Int32.Parse(timeSplitArray[1]) % 5))
                     {
                         output = output + this.yellow;
                     }
