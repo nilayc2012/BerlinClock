@@ -9,15 +9,15 @@ namespace BerlinClock.source
 
     abstract class BerlinClockFinderParent<T>
     {
-        protected char red;
-        protected char yellow;
-        protected char off;
+        protected string red;
+        protected string yellow;
+        protected string off;
 
         public BerlinClockFinderParent()
         {
-            red = 'R';
-            yellow = 'Y';
-            off = 'O';
+            red = "R";
+            yellow = "Y";
+            off = "O";
         }
 
         public abstract T formatToBerlinClock(string time);

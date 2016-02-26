@@ -4,3 +4,9 @@ C:\Users\NILAY\Desktop\BerlinClock\BerlinClock\bin\Debug\BerlinClock.pdb
 C:\Users\NILAY\Desktop\BerlinClock\BerlinClock\obj\Debug\BerlinClock.csprojResolveAssemblyReference.cache
 C:\Users\NILAY\Desktop\BerlinClock\BerlinClock\obj\Debug\BerlinClock.exe
 C:\Users\NILAY\Desktop\BerlinClock\BerlinClock\obj\Debug\BerlinClock.pdb
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\bin\Debug\BerlinClock.exe.config
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\obj\Debug\BerlinClock.exe
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\obj\Debug\BerlinClock.pdb
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\bin\Debug\BerlinClock.exe
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\bin\Debug\BerlinClock.pdb
+C:\Users\NILAY\Desktop\c#\BerlinClock\BerlinClock\obj\Debug\BerlinClock.csprojResolveAssemblyReference.cache
